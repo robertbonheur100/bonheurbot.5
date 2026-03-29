@@ -159,17 +159,17 @@ export default function BonheurBot() {
   const [trades, setTrades] = useState([]);
 
   const connectAPI = async () => {
-    await fetch('http://localhost:5000/connect', {
+    await fetch('https://bonheurbot.onrender.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token })
     });
   };
 
-  const loadData = async () => {
-    const b = await fetch('http://localhost:5000/balance').then(r => r.json());
-    const s = await fetch('http://localhost:5000/stats').then(r => r.json());
-    const t = await fetch('http://localhost:5000/trades').then(r => r.json());
+const loadData = async () => {
+    const b = await fetch('https://bonheurbot.onrender.com').then(r => r.json());
+    const s = await fetch('https://bonheurbot.onrender.com').then(r => r.json());
+    const t = await fetch('https://bonheurbot.onrender.com').then(r => r.json());
 
     setBalance(b.balance);
     setStats(s);
@@ -213,3 +213,5 @@ export default function BonheurBot() {
     </div>
   );
 }
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log('Running on port', PORT));
