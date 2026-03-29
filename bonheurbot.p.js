@@ -166,7 +166,7 @@ export default function BonheurBot() {
     });
   };
 
-const loadData = async () => {
+  const loadData = async () => {
     const b = await fetch('https://bonheurbot.onrender.com').then(r => r.json());
     const s = await fetch('https://bonheurbot.onrender.com').then(r => r.json());
     const t = await fetch('https://bonheurbot.onrender.com').then(r => r.json());
